@@ -21,12 +21,15 @@ export default function ConferenceTable(props) {
     getData();
   }, []);
 
-  const TableContents = confData.map((conf) => {
-    return (
-      <div key={conf.id}>
-        <span>{conf.conference_name}</span>
-      </div>
+  const TableContents = confData.map((conf, i) => {
+    
+    if (i <= 20) {//TODO delete once done testing
+      return (
+        <div key={i}>
+          <span>{conf.conference_name}</span>
+        </div>
     )
+  }""
   })
 
   return (
