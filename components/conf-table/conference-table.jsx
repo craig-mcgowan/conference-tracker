@@ -3,6 +3,12 @@ import ConferenceCard from "../conf-card/conf-card"
 
 export default function ConferenceTable(props) {
   const [confData, setConfData]= useState([])
+  const sortByDate = (conferences) => {
+    conferences.sort((a, b) => {
+      // console.log(a)
+      return new Date(a.start_date) - new Date(b.start_date)
+    })
+  }
   
   const getData = () => {
     fetch('data.json', { 
@@ -14,6 +20,7 @@ export default function ConferenceTable(props) {
       console.log(response)
       return response.json()
     }).then(function (myJson) {
+      sortByDate(myJson)
       setConfData(myJson)
     })
   }
@@ -22,7 +29,9 @@ export default function ConferenceTable(props) {
     getData();
   }, []);
 
+
   const TableContents = confData.map((conf, i) => {
+    const sortedByMonth = {}
     
     if (i <= 20) {//TODO delete once done testing
       return (
