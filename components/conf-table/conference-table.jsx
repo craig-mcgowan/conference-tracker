@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ConferenceCard from "../conf-card/conf-card"
 
 export default function ConferenceTable(props) {
   const [confData, setConfData]= useState([])
@@ -25,9 +26,7 @@ export default function ConferenceTable(props) {
     
     if (i <= 20) {//TODO delete once done testing
       return (
-        <div key={i}>
-          <span>{conf.conference_name}</span>
-        </div>
+        <ConferenceCard key={i} conf={conf} />
     )
   }""
   })
