@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import ConferenceTable from '../components/conf-table/conference-table'
+import ConferenceTable from './conf-table/conference-table'
 
 export default function Home() {
   return (
