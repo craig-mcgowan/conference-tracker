@@ -1,21 +1,22 @@
 // 'use client'
 // import { useEffect, useState } from "react"
+import confData from "../../data/data"
 import ConferenceCard from "./conf-card"
 
-async function getData() {
-  const res = await fetch('/data/data.json', {
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-  return res.json()
-}
-
+// async function getData() {
+//   const res = await fetch('/data/data.json', {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     }
+//   })
+//   return res.json()
+// }
+console.log(confData);
 export default async function ConferenceTable(props) {
   // const [confData, setConfData]= useState([])
   
-  const confData = await getData()
+
 
   const sortByDate = (conferences) => {
     conferences.sort((a, b) => {
@@ -55,7 +56,7 @@ export default async function ConferenceTable(props) {
       return (
         <ConferenceCard key={i} conf={conf} />
     )
-  }""
+  }
   })
 
   return (
